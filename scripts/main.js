@@ -5,6 +5,24 @@ let deposit;
 let mission;
 let period;
 
-alert("Добро пожаловать! Это 1-й урок!");
+money = 50000;
+income = "Такси";
+addExpenses = "Еда, Вода, Бензин, Одежда";
+deposit = true;
+mission = 300000;
+period = 6;
 
-console.log("Ты меня видишь? Значит всё правильно!");
+console.log(typeof money);
+console.log(typeof income);
+console.log(typeof deposit);
+console.log(addExpenses.length);
+console.log('Период равен ' + period + ' месяцев' );
+console.log('Цель заработать ' + mission + ' рублей');
+addExpenses = addExpenses.toLowerCase();
+
+
+console.log(addExpenses.split(' '));
+
+let budgetDay = money/30;
+
+console.log(budgetDay);
