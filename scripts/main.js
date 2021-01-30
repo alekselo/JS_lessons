@@ -1,28 +1,19 @@
-let money;
-let income;
-let addExpenses;
-let deposit;
-let mission;
-let period;
+let num = 266219;
 
-money = 50000;
-income = "Такси";
-addExpenses = "Еда, Вода, Бензин, Одежда";
-deposit = true;
-mission = 300000;
-period = 6;
+num = num.toString().split('');
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев' );
-console.log('Цель заработать ' + mission + ' рублей');
-addExpenses = addExpenses.toLowerCase();
+console.log(num);
+
+let result = num.reduce(function(sum, current) {
+  return sum * current;
+}, );
+
+console.log(result);
+
+result = result ** 3;
+
+console.log(result);
+
+console.log(String(result).slice(0  ,2));
 
 
-console.log(addExpenses.split(' '));
-
-let budgetDay = money/30;
-
-console.log(budgetDay);
