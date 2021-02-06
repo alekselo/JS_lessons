@@ -1,50 +1,53 @@
 'use strict';
 
-let money = prompt("Ваш ежемесячный доход?");
-let income = "Такси";
-let addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую").toLowerCase();
-let deposit = confirm("Есть ли у Вас депозит в банке?"); 
-let mission = 300000;
-let expenses1 = prompt("Введите обязательную статью расходов?");
-let amount1 = prompt("Во сколько это обойдется?");
-let expenses2 = prompt("Введи еще одну важную статью расходов?");
-let amount2 = prompt("Во сколько это обойдется?");
-let budgetMonth = (money - amount1 - amount2); 
-let budgetDay = Math.floor(budgetMonth/30);
-let period = Math.ceil(mission/budgetMonth);
+let lang = prompt("Какой язык предпочитаете?", "ru/en");
+let namePerson = prompt("Введите имя");
 
-switch (true) {
-  case budgetDay >= 1200: 
-    console.log("У Вас высокий уровень дохода!");
-    break;
-  case budgetDay >= 600 && budgetDay < 1200: 
-    console.log("У вас средний уровень дохода");
-    break;
-  case budgetDay < 600 && budgetDay > 0: 
-    console.log("К сожалению у вас уровень дохода ниже среднего");
-    break;
-  case budgetDay < 0:
-    console.log("Что то пошло не так");
-    break;
-}; 
+function ifElse(){
+  if (lang == "ru"){
+    console.log("Пн, Вт, Ср, Чт, Пт, Сб, Вс");
+  } else if (lang == "en"){
+    console.log("Mn, Tu, Wd, Th, Fr, Sa, Sn");
+  }
+};
 
-// if (budgetDay >= 1200) {
-//   console.log("У Вас высокий уровень дохода!");
-// } else if (budgetDay >= 600 && budgetDay < 1200) {
-//   console.log("У вас средний уровень дохода");
-// } else if (budgetDay < 600 && budgetDay > 0) {
-//   console.log("К сожалению у вас уровень дохода нgit иже среднего");
-// } else if (budgetDay < 0) {
-//   console.log("Что то пошло не так");
-// };
+function switchCase(){
+  switch (lang) {
+    case "ru":
+      alert("Пн, Вт, Ср, Чт, Пт, Сб, Вс");
+      break;
+    case "en":
+      alert("Mn, Tu, Wd, Th, Fr, Sa, Sn");
+      break;
+  }
+};
+
+function funcArray(){
+  let langArray = [];
+  langArray['ru'] = ["Пн, Вт, Ср, Чт, Пт, Сб, Вс"];
+  langArray['en'] = ["Mn, Tu, Wd, Th, Fr, Sa, Sn"];
+
+  console.log(langArray[lang]);
+};
+
+function rolePerson(){
+  let message = (namePerson == "Артём") ? "Директор!" :
+      (namePerson == "Максим") ? "Преподаватель" :
+       "Студент!";
+      console.log(message);
+  };
+ 
 
 
-// console.log(typeof money);
-// console.log(typeof income);
-// console.log(typeof deposit);
-// console.log(addExpenses.length);
-// console.log('Период равен ' + period + ' месяцев' );
-console.log('Цель заработать ' + mission + ' рублей');
-console.log('Бюджет на месяц: ',  budgetMonth);
-console.log('Период: ', period);
-console.log('Ежедневный бюджет:', budgetDay);
+
+
+
+
+
+
+
+
+ifElse();
+switchCase();
+funcArray();
+rolePerson();
