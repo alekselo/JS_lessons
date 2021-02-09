@@ -1,28 +1,36 @@
-let arr = []; 
-let n = 100;
+"use strict";
 
-for (let i = 0; i<=6; i++ ){
-  arr.push(prompt("Введите число"));
+const guessBot = function() {
+  let randomNumber = 36;
+  return function(){
+    let userNumber = prompt("Угадай число от 0 до 100!");
+    if (userNumber === null){
+      alert("Игра окончена!");
+   } else if (isNaN(userNumber)){
+     alert("Введи число!");
+     play();     
+   } else if (+userNumber > randomNumber){
+     alert("Загаданное число меньше!");
+     play();
+   } else if (+userNumber < randomNumber){
+     alert("Загаданное число больше!");
+     play();
+   } else if (+userNumber == randomNumber){
+     alert("Поздравляю, Вы угадали!!!");
+   }
+  };
 };
 
+const play = guessBot();
 
-arr.forEach((item) => {
-  if (item.startsWith('2') || item.startsWith('4')) {
-    console.log(item);
-    
-  }
-});
+const goPlay = function(){
+  let quest = confirm("Хочешь поиграть?!")
+  if (quest === true){
+    play();
+  } else alert("До свидания!");
+};
 
-console.log(arr);
-
-
+goPlay();
 
 
-check:
-for (let i = 2; i <= n; i++) { 
 
-  for (let j = 2; j < i; j++) { 
-    if (i % j == 0) continue check; 
-  }
-  console.log(i + " делится на " + i + " и 1");  
-}
