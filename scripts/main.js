@@ -6,6 +6,42 @@ let isNumber = function (n) {
 
 let money;
 
+const btnStart = document.getElementById("start");
+const btnPlusIncome = document.getElementsByTagName("button")[0];
+const btnPlusExpenses = document.getElementsByTagName("button")[1];
+const depositCheckbox = document.querySelector("#deposit-check");
+const addIncomeItem = document.querySelectorAll(".additional_income-item");
+const inputBudgetMonth = document.getElementsByClassName(
+  "budget_month-value"
+)[0];
+const inputBudgetDay = document.getElementsByClassName("budget_day-value")[0];
+const inputExpensesMonth = document.getElementsByClassName(
+  "expenses_month-value"
+)[0];
+const inputAddIncome = document.getElementsByClassName(
+  "additional_income-value"
+)[0];
+const inputAddExpenses = document.getElementsByClassName(
+  "additional_expenses-value"
+)[0];
+const inputPeriodValue = document.getElementsByClassName(
+  "income_period-value"
+)[0];
+const inputTargetMonth = document.getElementsByClassName(
+  "target_month-value"
+)[0];
+const salaryAmount = document.querySelector(".salary-amount");
+const incomeTitle = document.querySelector(
+  "div.income-items input.income-title"
+);
+const incomeAmount = document.querySelector(".income-amount");
+const expensesTitle = document.querySelector(
+  "div.expenses-items input.expenses-title"
+);
+const expensesAmount = document.querySelector(".expenses-amount");
+const addExpensesItem = document.querySelector(".additional_expenses-item");
+const targetAmout = document.querySelector(".target-amount");
+const periodSelect = document.querySelector(".period-select");
 function start() {
   do {
     money = prompt("Ваш ежемесячный доход?");
@@ -136,3 +172,23 @@ console.log(
 console.log("Цель будет достигнута за " + appData.period + " месяцев!");
 console.log(appData.getStatusIncome());
 console.log(appData.addExpenses.join(", "));
+console.log(btnStart);
+console.log(btnPlusIncome);
+console.log(btnPlusExpenses);
+console.log(depositCheckbox);
+console.log(addIncomeItem);
+console.log(inputBudgetDay);
+console.log(inputBudgetMonth);
+console.log(inputExpensesMonth);
+console.log(inputAddIncome);
+console.log(inputAddExpenses);
+console.log(inputPeriodValue);
+console.log(inputTargetMonth);
+console.log(salaryAmount);
+console.log(incomeTitle);
+console.log(incomeAmount);
+console.log(expensesTitle);
+console.log(expensesAmount);
+console.log(addExpensesItem);
+console.log(targetAmout);
+console.log(periodSelect);
