@@ -64,7 +64,6 @@ let appData = {
     appData.getAddIncome();
     appData.getBudget();
     appData.showResult();
-    console.log(appData.incomeMonth);
   },
   showResult: function () {
     budgetMonthValue.value = appData.budgetMonth;
