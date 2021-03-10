@@ -32,7 +32,7 @@ const salaryAmount = document.querySelector(".salary-amount");
 const incomeTitle = document.querySelector(
   "div.income-items input.income-title"
 );
-const incomeItems = document.querySelectorAll(".income-items");
+let incomeItems = document.querySelectorAll(".income-items");
 const expensesTitle = document.querySelector(
   "div.expenses-items input.expenses-title"
 );
@@ -49,6 +49,7 @@ let appData = {
   expensesMonth: 0,
   income: {},
   addIncome: [],
+  incomeMonth: 0,
   expenses: {},
   addExpenses: [],
   deposit: false,
@@ -67,7 +68,7 @@ let appData = {
   },
   showResult: function () {
     budgetMonthValue.value = appData.budgetMonth;
-    budgetDayValue.value = appData.budgetDay;
+    budgetDayValue.value = Math.ceil(appData.budgetDay);
     expensesMonthValue.value = appData.expensesMonth;
     addExpensesValue.value = appData.addExpenses.join(", ");
     addIncomeValue.value = appData.addIncome.join(", ");
@@ -117,6 +118,14 @@ let appData = {
       appData.incomeMonth += appData.income[key];
     }
   },
+  addIncomeBlock: function () {
+    let cloneIncomeItem = incomeItems[0].cloneNode(true);
+    incomeItems[0].parentNode.insertBefore(cloneIncomeItem, btnPlusIncome);
+    incomeItems = document.querySelectorAll(".income-items");
+    if (incomeItems.length === 3) {
+      btnPlusIncome.style.display = "none";
+    }
+  },
   getAddIncome: function () {
     addIncomeItem.forEach(function (item) {
       let itemValue = item.value.trim();
@@ -154,7 +163,8 @@ let appData = {
   },
   getBudget: function () {
     appData.budget = +salaryAmount.value;
-    appData.budgetMonth = +appData.budget - appData.expensesMonth;
+    appData.budgetMonth =
+      +appData.budget - appData.expensesMonth + appData.incomeMonth;
     appData.budgetDay = +appData.budgetMonth / 30;
   },
   getExpensesMonth: function () {
@@ -204,6 +214,7 @@ btnStart.addEventListener("click", function () {
   }
 });
 btnPlusExpenses.addEventListener("click", appData.addExpensesBlock);
+btnPlusIncome.addEventListener("click", appData.addIncomeBlock);
 periodSelect.addEventListener("change", appData.selectPeriodValue);
 
 function getStatusTarget() {
